@@ -1,0 +1,18 @@
+<!-- Blog posts pulled from destination.ts -->
+<main>
+    <br>
+    <h2 class="text-center mt-5  mb-4">A taste of what one can expect!</h2>
+    <article class="container">
+
+        <div *ngFor="let i of blog">
+
+            <div class="card m-4">
+                <img src={{i.img}} class="card-img-top" alt={{i.destination}}>
+                <div class="card-body">
+                    <p class="card-text">{{i.text}}</p>
+                </div>
+            </div>
+
+        </div>
+    </article>
+</main>

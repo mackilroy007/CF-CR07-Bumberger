@@ -1,0 +1,38 @@
+<br>
+<h2 class="text-center mt-5">Cart</h2>
+<main class="container">
+    <div class="cart-item" *ngFor="let item of v">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src={{item.img}} class="card-img" alt={{item.destination}}>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.destination}}</h5>
+                        <p class="card-text"><small class="text-muted">{{item.price | currency:"EUR" }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- checkout form -->
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+        <div>
+            <div class="form-group col-4">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com"
+                    formControlName="name">
+            </div>
+
+            <div class="form-group col-4">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="address" formControlName="password">
+            </div>
+
+            <button type="button" class="btn btn-outline-success ml-3" type="submit">Purchase</button>
+        </div>
+    </form>
+</main>

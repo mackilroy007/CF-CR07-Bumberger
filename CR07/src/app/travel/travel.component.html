@@ -1,0 +1,74 @@
+<br>
+<br>
+<h2 class="text-center mt-5 mb-2">Join us on these featured adventures around the globe!</h2>
+<article class="container ">
+    <div *ngFor="let i of travel">
+        <div class="card my-5">
+            <img src={{i.img}} class="card-img-top" alt={{i.destination}}>
+            <div class="card-body">
+                <h4 class="card-text">{{i.destination}}</h4>
+                <h5 class="card-text">Next available slot: <b>{{i.start}}</b> Duration: <b>{{i.duration}}</b></h5>
+                <p class="card-text">{{i.description}}</p>
+                <div class="d-flex justify-content-end">
+                    <p class="card-text mt-3 mr-5"><b>{{i.price | currency:"EUR"}}</b></p>
+                    <button type="button" class="btn btn-outline-info" (click)="addToCart(v)">Book Now!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<br>
+<br>
+
+<!-- question form -->
+<div class="container form-box">
+    <form [formGroup]="update" (ngSubmit)="onSubmit()">
+        <div class="form-group row mr-1">
+            <label class="col-sm-2 col-form-label">Destination:</label>
+            <div class="col-sm-10 ">
+                <!-- Model:  -->
+                <input type="text" class="form-control" formControlName="destination">
+            </div>
+        </div>
+        <div class="form-group row mr-1">
+            <label class="col-sm-2 col-form-label">Image:</label>
+            <div class="col-sm-10">
+                <!-- Image file:  -->
+                <input type="text" class="form-control" formControlName="img">
+            </div>
+        </div>
+        <div class="form-group row mr-1">
+            <label class="col-sm-2 col-form-label">Description:</label>
+            <div class="col-sm-10">
+                <!-- Image file: -->
+                <input type="text" class="form-control" class="form-control" formControlName="description">
+            </div>
+        </div>
+        <div class="form-group row mr-1">
+            <label class="col-sm-2 col-form-label">Start Date:</label>
+            <div class="col-sm-10">
+                <!-- Image file: -->
+                <input type="text" class="form-control" class="form-control" formControlName="start">
+            </div>
+        </div>
+        <div class="form-group row mr-1">
+            <label class="col-sm-2 col-form-label">Duration:</label>
+            <div class="col-sm-10">
+                <!-- Image file: -->
+                <input type="text" class="form-control" class="form-control" formControlName="duration">
+            </div>
+        </div>
+        <div class="form-group row mr-1">
+            <label class="col-sm-2 col-form-label">Price in Eur:</label>
+            <div class="col-sm-10">
+                <!-- Price in $: -->
+                <input type="text" class="form-control" formControlName="price">
+            </div>
+        </div>
+        <div class="form-group row mr-1">
+            <div class="col-sm-10">
+                <input type="submit" class="btn btn-primary " value="Submit">
+            </div>
+        </div>
+    </form>
+</div>
